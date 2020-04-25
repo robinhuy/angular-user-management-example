@@ -1,0 +1,37 @@
+.wrapper {
+  background: #eee;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  color: #636363;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: -2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.form > * {
+  width: 100%;
+}
+
+.form-field {
+  margin: 0.5rem 0;
+}
+
+.btn-login {
+  margin: 1rem auto;
+}
