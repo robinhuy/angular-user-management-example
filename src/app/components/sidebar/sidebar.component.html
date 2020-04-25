@@ -1,19 +1,16 @@
 <ul class="menu">
   <li>
     <a
-      routerLink="/"
+      routerLink="/admin/users"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >Home</a
+      >List Users</a
     >
   </li>
   <li>
-    <a routerLink="/users" routerLinkActive="active">List Users</a>
+    <a routerLink="/admin/users/create" routerLinkActive="active">Create User</a>
   </li>
   <li>
-    <a routerLink="/users/create" routerLinkActive="active">Create User</a>
-  </li>
-  <li>
-    <a routerLink="/users/edit" routerLinkActive="active">Edit User</a>
+    <a routerLink="/admin/users/edit" routerLinkActive="active">Edit User</a>
   </li>
 </ul>
