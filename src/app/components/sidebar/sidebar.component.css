@@ -1,0 +1,29 @@
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+.menu > li {
+  border-bottom: 1px solid #edf1f7;
+}
+.menu > li:first-child {
+  border-top: none;
+}
+.menu > li > a {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  color: #192038;
+}
+
+.menu > li:hover > a {
+  color: #598bff;
+}
+.menu > li > a.active {
+  color: #36f;
+}

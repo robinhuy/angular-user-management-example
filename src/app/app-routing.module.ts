@@ -9,8 +9,8 @@ import { CreateUserComponent } from "./pages/users/create-user/create-user.compo
 import { EditUserComponent } from "./pages/users/edit-user/edit-user.component";
 
 const routes: Routes = [
+  { path: "", component: HomeComponent },
   { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent },
   { path: "profile", component: ProfileComponent },
   { path: "users", component: UsersComponent },
   { path: "users/create", component: CreateUserComponent },

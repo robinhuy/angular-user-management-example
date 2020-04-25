@@ -1,4 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-y: scroll;
+}
+body ::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+body ::-webkit-scrollbar-thumb {
+  background: #e4e9f2;
+  cursor: pointer;
+  border-radius: 0.15625rem;
+}
+img {
+  max-width: 100%;
+}
+.text-center {
+  text-align: center !important;
+}
+.all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

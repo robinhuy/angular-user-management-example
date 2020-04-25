@@ -2,6 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+  MatSortModule,
+  MatTableModule
+} from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
@@ -11,6 +29,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { UsersComponent } from './pages/users/users.component';
 import { CreateUserComponent } from './pages/users/create-user/create-user.component';
 import { EditUserComponent } from './pages/users/edit-user/edit-user.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +42,30 @@ import { EditUserComponent } from './pages/users/edit-user/edit-user.component';
     ProfileComponent,
     UsersComponent,
     CreateUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatSortModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

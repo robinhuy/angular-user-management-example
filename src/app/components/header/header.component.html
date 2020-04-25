@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <a href="/" target="_blank">Admin Panel</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div [matMenuTriggerFor]="menu" class="user">
+      <div class="user-avatar">
+        <img src="assets/img/default-avatar.jpg" />
+      </div>
+
+      <div class="user-name">
+        Robin Huy
+      </div>
+    </div>
+
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item routerLink="/profile">Profile</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item>Log out</a>
+    </mat-menu>
+  </div>
+</header>
