@@ -10,7 +10,7 @@ import { EditUserComponent } from "./pages/users/edit-user/edit-user.component";
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/admin/users", pathMatch: "full" },
+  { path: "", redirectTo: "/admin/login", pathMatch: "full" },
   { path: "admin/login", component: LoginComponent },
   {
     path: "admin",

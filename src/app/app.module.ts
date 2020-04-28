@@ -1,7 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from "./app-routing.module";
 import {
   MatButtonModule,
   MatCardModule,
@@ -17,22 +18,22 @@ import {
   MatProgressSpinnerModule,
   MatSidenavModule,
   MatSortModule,
-  MatTableModule
-} from '@angular/material';
+  MatTableModule,
+} from "@angular/material";
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './pages/login/login.component';
-import { HomeComponent } from './pages/home/home.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { UsersComponent } from './pages/users/users.component';
-import { CreateUserComponent } from './pages/users/create-user/create-user.component';
-import { EditUserComponent } from './pages/users/edit-user/edit-user.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { LoginComponent } from "./pages/login/login.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { NotFoundComponent } from "./pages/not-found/not-found.component";
+import { ProfileComponent } from "./pages/profile/profile.component";
+import { UsersComponent } from "./pages/users/users.component";
+import { CreateUserComponent } from "./pages/users/create-user/create-user.component";
+import { EditUserComponent } from "./pages/users/edit-user/edit-user.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
 
 @NgModule({
   declarations: [
@@ -47,12 +48,13 @@ import { AdminLayoutComponent } from './components/admin-layout/admin-layout.com
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatButtonModule,
     MatCardModule,
     MatDatepickerModule,
@@ -70,6 +72,6 @@ import { AdminLayoutComponent } from './components/admin-layout/admin-layout.com
     MatTableModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,14 +4,38 @@
 
     <mat-card class="form">
       <mat-form-field class="form-field">
-        <input matInput placeholder="Email" autocomplete="off" />
+        <input
+          matInput
+          placeholder="Email"
+          autocomplete="off"
+          [(ngModel)]="email"
+          required
+          email
+          #emailInput="ngModel"
+        />
+        <mat-error *ngIf="emailInput.invalid">Invalid email address</mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
-        <input matInput placeholder="Password" type="password" />
+        <input
+          matInput
+          placeholder="Password"
+          type="password"
+          [(ngModel)]="password"
+          required
+          #passwordInput="ngModel"
+        />
+        <mat-error *ngIf="passwordInput.invalid"
+          >Please input password</mat-error
+        >
       </mat-form-field>
 
-      <button mat-raised-button class="btn-login" color="primary">
+      <button
+        mat-raised-button
+        class="btn-login"
+        color="primary"
+        (click)="login()"
+      >
         <span> Login</span>
       </button>
     </mat-card>
