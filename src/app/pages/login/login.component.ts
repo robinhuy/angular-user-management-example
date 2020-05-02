@@ -14,6 +14,6 @@ export class LoginComponent {
 
   login() {
     console.log(this.email, this.password);
-    this.router.navigateByUrl("/admin/users");
+    this.router.navigateByUrl("/admin/profile");
   }
 }
