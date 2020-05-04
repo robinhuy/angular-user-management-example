@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, FormArray, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-profile",
@@ -14,9 +14,22 @@ export class ProfileComponent {
     birthday: [""],
     phone: ["", Validators.required],
     bio: [""],
+    addresses: this.fb.array([this.fb.control("Address 1")]),
   });
 
   constructor(private fb: FormBuilder) {}
+
+  get addresses() {
+    return this.profileForm.get("addresses") as FormArray;
+  }
+
+  addAddress() {
+    this.addresses.push(this.fb.control(""));
+  }
+
+  removeAddress(index: number) {
+    this.addresses.removeAt(index);
+  }
 
   onFileChange(event): void {
     const files = event.target.files;

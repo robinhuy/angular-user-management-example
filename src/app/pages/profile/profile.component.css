@@ -24,11 +24,11 @@
   max-width: 200px;
 }
 
-.interests {
+.addresses {
   display: flex;
 }
 
-.interest-input {
+.address-input {
   width: 100%;
   margin-right: 1.5rem;
 }

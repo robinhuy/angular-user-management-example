@@ -44,6 +44,39 @@
       ></textarea>
     </mat-form-field>
 
+    <ng-container formArrayName="addresses">
+      <div
+        class="addresses"
+        *ngFor="let a of addresses.controls; let i = index"
+      >
+        <mat-form-field class="address-input">
+          <input
+            matInput
+            [placeholder]="'Address ' + (i + 1)"
+            [formControlName]="i"
+          />
+        </mat-form-field>
+
+        <button
+          *ngIf="i !== addresses.controls.length - 1"
+          mat-mini-fab
+          color="accent"
+          (click)="removeAddress()"
+        >
+          <mat-icon>remove</mat-icon>
+        </button>
+
+        <button
+          *ngIf="i === addresses.controls.length - 1"
+          mat-mini-fab
+          color="primary"
+          (click)="addAddress()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+
     <button
       mat-raised-button
       color="primary"
