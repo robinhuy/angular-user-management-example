@@ -1,38 +1,27 @@
-import { Injectable } from '@angular/core';
-import { User } from '../models/user.model';
+import { Injectable } from "@angular/core";
+import { User } from "../models/user.model";
+import { HttpClient, HttpResponse } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { TableOptions } from "../models/table-options.model";
+
+const API: string = "http://localhost:3000/users";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class UserService {
-  users: User[] = [
-    {
-      id: 1,
-      name: "Nanette MacDearmaid",
-      email: "nmacdearmaid0@ucla.edu",
-      birthday: "11/18/1995",
-      avatar:
-        "https://robohash.org/faceresintblanditiis.bmp?size=150x150&set=set1",
-    },
-    {
-      id: 2,
-      name: "Chancey Di Maria",
-      email: "cdi1@simplemachines.org",
-      birthday: "4/4/2008",
-      avatar:
-        "https://robohash.org/modiinventoremolestias.png?size=150x150&set=set1",
-    },
-    {
-      id: 3,
-      name: "Catherine Waberer",
-      email: "cwaberer2@umn.edu",
-      birthday: "12/2/2002",
-      avatar:
-        "https://robohash.org/dolortemporibussoluta.png?size=150x150&set=set1",
-    },
-  ];
+  constructor(private http: HttpClient) {}
 
-  getUsers(): User[] {
-    return this.users;
+  getUsers(options: TableOptions): Observable<HttpResponse<User[]>> {
+    let queryParams = [];
+    queryParams.push("_page=" + (options.currentPage || 1));
+    queryParams.push("_sort=" + (options.column || "id"));
+    queryParams.push("_order=" + (options.direction || "desc"));
+    queryParams.push("_limit=" + (options.itemsPerPage || 10));
+    queryParams.push("q=" + (options.keyword || ""));
+    const queryParamsUrl = queryParams.join("&");
+
+    const api = API + `?${queryParamsUrl}`;
+    return this.http.get<User[]>(api, { observe: "response" });
   }
 }
