@@ -7,18 +7,6 @@
   flex-direction: column;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;
-  padding-right: 2rem;
-}
-
-.mat-form-field {
-  margin-bottom: 1rem;
-}
-
 .btn-update {
   margin-top: 2rem;
   max-width: 200px;

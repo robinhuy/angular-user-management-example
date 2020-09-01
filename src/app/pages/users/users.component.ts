@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { Sort, MatPaginator } from "@angular/material";
 import { User } from "src/app/models/user.model";
 import { UserService } from "src/app/services/user.service";
@@ -10,7 +10,7 @@ import { debounceTime, distinctUntilChanged } from "rxjs/operators";
   templateUrl: "./users.component.html",
   styleUrls: ["./users.component.css"],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
   users: User[] = [];
 
   displayedColumns: string[] = [
@@ -50,6 +50,7 @@ export class UsersComponent implements OnInit {
     this.searchUserInput$
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe((value) => {
+        console.log("sub");
         this.paginator.firstPage();
 
         this.userService
@@ -64,6 +65,7 @@ export class UsersComponent implements OnInit {
             this.totalItems = parseInt(result.headers.get("X-Total-Count"));
           });
       });
+    console.log(this.searchUserInput$);
   }
 
   changePage(event) {
@@ -103,5 +105,9 @@ export class UsersComponent implements OnInit {
   searchUser() {
     this.paginator.firstPage();
     this.searchUserInput$.next(this.searchUserInput);
+  }
+
+  ngOnDestroy() {
+    this.searchUserInput$.unsubscribe();
   }
 }

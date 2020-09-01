@@ -1,1 +1,14 @@
-<p>create-user works!</p>
+<form [formGroup]="createUserForm" (ngSubmit)="createUser()">
+  <!-- <app-user-form formControlName="profile"></app-user-form> -->
+
+  <app-password-form formControlName="password"></app-password-form>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="btn-update"
+    [disabled]="!createUserForm.valid"
+  >
+    Add new user
+  </button>
+</form>

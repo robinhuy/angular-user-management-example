@@ -35,6 +35,8 @@ import { HeaderComponent } from "./components/header/header.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
+import { UserFormComponent } from "./components/user-form/user-form.component";
+import { PasswordFormComponent } from "./components/password-form/password-form.component";
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.com
     SidebarComponent,
     FooterComponent,
     AdminLayoutComponent,
+    UserFormComponent,
+    PasswordFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -29,3 +29,15 @@ img {
   justify-content: center;
   align-items: center;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding-right: 2rem;
+}
+
+.mat-form-field {
+  margin-bottom: 1rem;
+}
