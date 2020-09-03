@@ -21,7 +21,6 @@ export class ConfirmValidParentMatcher implements ErrorStateMatcher {
 @Component({
   selector: "app-password-form",
   templateUrl: "./password-form.component.html",
-  styleUrls: ["./password-form.component.css"],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -51,9 +50,9 @@ export class PasswordFormComponent implements ControlValueAccessor, OnDestroy {
     },
     { validator: this.checkPasswords }
   );
-  subscription: Subscription;
   onChange: any = () => {};
   onTouched: any = () => {};
+  subscription: Subscription;
   confirmValidParentMatcher = new ConfirmValidParentMatcher();
 
   constructor(private fb: FormBuilder) {
@@ -74,7 +73,7 @@ export class PasswordFormComponent implements ControlValueAccessor, OnDestroy {
     return password === confirmPassword ? null : { missMatch: true };
   }
 
-  writeValue(obj: any): void {}
+  writeValue(_: any): void {}
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -85,6 +84,6 @@ export class PasswordFormComponent implements ControlValueAccessor, OnDestroy {
   }
 
   validate(_: FormControl): ValidationErrors | null {
-    return this.passwordForm.valid ? null : { valid: false };
+    return this.passwordForm.valid ? null : { missmatch: true };
   }
 }

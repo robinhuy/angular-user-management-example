@@ -4,16 +4,21 @@
   left: 0;
   right: 0;
   z-index: 1040;
+  background-color: #fff;
+  height: 4.75rem;
 }
 
 .main {
   margin-top: 4.75rem;
-  min-height: calc(100vh - 4.75rem);
 }
 
 .left-menu {
   width: 16rem;
   padding: 1.25rem 0;
+}
+
+.content {
+  height: calc(100vh - 4.75rem);
 }
 
 .main-content {

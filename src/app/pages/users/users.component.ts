@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
-import { Sort, MatPaginator } from "@angular/material";
+import { Sort, MatPaginator, PageEvent } from "@angular/material";
 import { User } from "src/app/models/user.model";
 import { UserService } from "src/app/services/user.service";
 import { Subject } from "rxjs";
@@ -50,7 +50,6 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.searchUserInput$
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe((value) => {
-        console.log("sub");
         this.paginator.firstPage();
 
         this.userService
@@ -65,10 +64,9 @@ export class UsersComponent implements OnInit, OnDestroy {
             this.totalItems = parseInt(result.headers.get("X-Total-Count"));
           });
       });
-    console.log(this.searchUserInput$);
   }
 
-  changePage(event) {
+  changePage(event: PageEvent) {
     this.itemsPerPage = event.pageSize;
 
     this.userService

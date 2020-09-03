@@ -24,4 +24,8 @@ export class UserService {
     const api = API + `?${queryParamsUrl}`;
     return this.http.get<User[]>(api, { observe: "response" });
   }
+
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(API, user);
+  }
 }
