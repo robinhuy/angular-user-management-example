@@ -12,6 +12,16 @@
   <mat-form-field>
     <input
       matInput
+      placeholder="Email"
+      autocomplete="off"
+      formControlName="email"
+    />
+    <mat-error>Invalid email address</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
       [matDatepicker]="picker"
       placeholder="Birthday"
       autocomplete="off"

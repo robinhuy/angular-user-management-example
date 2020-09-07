@@ -29,6 +29,7 @@ import { Subscription } from "rxjs";
 export class UserFormComponent implements ControlValueAccessor, OnDestroy {
   userForm = this.fb.group({
     name: ["", [Validators.required]],
+    email: ["", [Validators.email]],
     birthday: [""],
     phone: [""],
   });
@@ -45,7 +46,11 @@ export class UserFormComponent implements ControlValueAccessor, OnDestroy {
 
   ngOnDestroy() {}
 
-  writeValue(_: any): void {}
+  writeValue(obj: any): void {
+    if (obj) {
+      this.userForm.patchValue(obj);
+    }
+  }
 
   registerOnChange(fn: any): void {
     this.onChange = fn;

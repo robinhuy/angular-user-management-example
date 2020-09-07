@@ -25,7 +25,16 @@ export class UserService {
     return this.http.get<User[]>(api, { observe: "response" });
   }
 
+  getUserById(userId: string): Observable<User> {
+    const api = API + "/" + userId;
+    return this.http.get<User>(api);
+  }
+
   createUser(user: User): Observable<User> {
     return this.http.post<User>(API, user);
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(API + "/" + user.id, user);
   }
 }

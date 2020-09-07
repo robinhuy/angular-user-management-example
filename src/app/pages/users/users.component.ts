@@ -4,6 +4,7 @@ import { User } from "src/app/models/user.model";
 import { UserService } from "src/app/services/user.service";
 import { Subject } from "rxjs";
 import { debounceTime, distinctUntilChanged } from "rxjs/operators";
+import { formatDate } from "../../utils/date";
 
 @Component({
   selector: "app-users",
@@ -28,6 +29,8 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   searchUserInput: string = "";
   searchUserInput$ = new Subject<string>();
+
+  formatDate: any = formatDate;
 
   @ViewChild("paginator", { static: false }) paginator: MatPaginator;
 

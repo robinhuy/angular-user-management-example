@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: "profile", component: ProfileComponent },
       { path: "users", component: UsersComponent },
       { path: "users/create", component: CreateUserComponent },
-      { path: "users/edit", component: EditUserComponent },
+      { path: "users/edit/:id", component: EditUserComponent },
     ],
   },
 

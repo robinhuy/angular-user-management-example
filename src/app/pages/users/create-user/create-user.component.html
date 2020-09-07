@@ -5,6 +5,14 @@
 
   <button
     mat-raised-button
+    routerLink="/admin/users"
+    style="margin-right: 10px"
+  >
+    Cancel
+  </button>
+
+  <button
+    mat-raised-button
     color="primary"
     class="btn-update"
     [disabled]="!createUserForm.valid"
