@@ -20,9 +20,6 @@ import {
   MatSidenavModule,
   MatSortModule,
   MatTableModule,
-  MAT_DATE_LOCALE,
-  MAT_DATE_FORMATS,
-  MAT_NATIVE_DATE_FORMATS,
 } from "@angular/material";
 
 import { AppComponent } from "./app.component";
