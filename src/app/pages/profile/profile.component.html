@@ -61,7 +61,7 @@
           *ngIf="i !== addresses.controls.length - 1"
           mat-mini-fab
           color="accent"
-          (click)="removeAddress()"
+          (click)="removeAddress(i)"
         >
           <mat-icon>remove</mat-icon>
         </button>
