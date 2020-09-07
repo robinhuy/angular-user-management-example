@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   formatDate: any = formatDate;
 
-  @ViewChild("paginator", { static: false }) paginator: MatPaginator;
+  @ViewChild("paginator") paginator: MatPaginator;
 
   constructor(private userService: UserService) {}
 
