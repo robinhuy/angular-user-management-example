@@ -10,7 +10,7 @@ import {
   ValidationErrors,
 } from "@angular/forms";
 import { Subscription } from "rxjs";
-import { ErrorStateMatcher } from "@angular/material";
+import { ErrorStateMatcher } from "@angular/material/core";
 
 export class ConfirmValidParentMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null): boolean {

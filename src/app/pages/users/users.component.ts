@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
-import { Sort, MatPaginator, PageEvent } from "@angular/material";
+import { MatPaginator, PageEvent } from "@angular/material/paginator";
+import { Sort } from "@angular/material/sort";
 import { User } from "src/app/models/user.model";
 import { UserService } from "src/app/services/user.service";
 import { Subject } from "rxjs";
