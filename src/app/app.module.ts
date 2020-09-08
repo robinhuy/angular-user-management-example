@@ -35,6 +35,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
 import { UserFormComponent } from "./components/user-form/user-form.component";
 import { PasswordFormComponent } from "./components/password-form/password-form.component";
+import { DialogConfirmDeleteComponent } from './components/dialog-confirm-delete/dialog-confirm-delete.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PasswordFormComponent } from "./components/password-form/password-form.
     AdminLayoutComponent,
     UserFormComponent,
     PasswordFormComponent,
+    DialogConfirmDeleteComponent,
   ],
   imports: [
     BrowserModule,

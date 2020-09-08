@@ -6,6 +6,8 @@ import { UserService } from "src/app/services/user.service";
 import { Subject } from "rxjs";
 import { debounceTime, distinctUntilChanged } from "rxjs/operators";
 import { formatDate } from "../../utils/date";
+import { MatDialog } from "@angular/material/dialog";
+import { DialogConfirmDeleteComponent } from "src/app/components/dialog-confirm-delete/dialog-confirm-delete.component";
 
 @Component({
   selector: "app-users",
@@ -35,7 +37,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   @ViewChild("paginator") paginator: MatPaginator;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private dialog: MatDialog) {}
 
   ngOnInit() {
     // Get users with default options
@@ -107,6 +109,21 @@ export class UsersComponent implements OnInit, OnDestroy {
   searchUser() {
     this.paginator.firstPage();
     this.searchUserInput$.next(this.searchUserInput);
+  }
+
+  openDialogDeleteUser(userId: string) {
+    const dialogRef = this.dialog.open(DialogConfirmDeleteComponent, {
+      width: "300px",
+      data: { name: "User" },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.userService.deleteUser(userId).subscribe(() => {
+          this.users = this.users.filter((user: User) => user.id !== userId);
+        });
+      }
+    });
   }
 
   ngOnDestroy() {
