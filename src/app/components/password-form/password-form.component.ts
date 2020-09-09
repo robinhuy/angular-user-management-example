@@ -8,6 +8,7 @@ import {
   ControlValueAccessor,
   FormControl,
   ValidationErrors,
+  Validator,
 } from "@angular/forms";
 import { Subscription } from "rxjs";
 import { ErrorStateMatcher } from "@angular/material/core";
@@ -34,7 +35,8 @@ export class ConfirmValidParentMatcher implements ErrorStateMatcher {
     },
   ],
 })
-export class PasswordFormComponent implements ControlValueAccessor, OnDestroy {
+export class PasswordFormComponent
+  implements ControlValueAccessor, Validator, OnDestroy {
   passwordForm = this.fb.group(
     {
       password: [
@@ -62,11 +64,11 @@ export class PasswordFormComponent implements ControlValueAccessor, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  checkPasswords(group: FormGroup) {
+  checkPasswords(group: FormGroup): ValidationErrors | null {
     let password = group.get("password").value;
     let confirmPassword = group.get("confirmPassword").value;
 
@@ -84,6 +86,6 @@ export class PasswordFormComponent implements ControlValueAccessor, OnDestroy {
   }
 
   validate(_: FormControl): ValidationErrors | null {
-    return this.passwordForm.valid ? null : { missmatch: true };
+    return this.passwordForm.valid ? null : { valid: true };
   }
 }

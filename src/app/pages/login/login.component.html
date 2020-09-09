@@ -20,6 +20,7 @@
           placeholder="Password"
           type="password"
           [(ngModel)]="password"
+          (keyup.enter)="login()"
         />
         <mat-error>Please input password</mat-error>
       </mat-form-field>

@@ -17,6 +17,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
 
@@ -35,7 +36,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
 import { UserFormComponent } from "./components/user-form/user-form.component";
 import { PasswordFormComponent } from "./components/password-form/password-form.component";
-import { DialogConfirmDeleteComponent } from './components/dialog-confirm-delete/dialog-confirm-delete.component';
+import { DialogConfirmDeleteComponent } from "./components/dialog-confirm-delete/dialog-confirm-delete.component";
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { DialogConfirmDeleteComponent } from './components/dialog-confirm-delete
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSidenavModule,
+    MatSnackBarModule,
     MatSortModule,
     MatTableModule,
   ],

@@ -7,6 +7,7 @@ import {
   Validators,
   NG_VALUE_ACCESSOR,
   NG_VALIDATORS,
+  Validator,
 } from "@angular/forms";
 import { Subscription } from "rxjs";
 
@@ -26,7 +27,7 @@ import { Subscription } from "rxjs";
     },
   ],
 })
-export class UserFormComponent implements ControlValueAccessor, OnDestroy {
+export class UserFormComponent implements ControlValueAccessor, Validator, OnDestroy {
   userForm = this.fb.group({
     name: ["", [Validators.required]],
     email: ["", [Validators.email]],

@@ -4,6 +4,7 @@ import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { TableOptions } from "../models/table-options.model";
 
+const DOMAIN: string = "http://localhost:3000";
 const API: string = "http://localhost:3000/users";
 
 @Injectable({
@@ -11,6 +12,16 @@ const API: string = "http://localhost:3000/users";
 })
 export class UserService {
   constructor(private http: HttpClient) {}
+
+  login(email: string, password: string) {
+    return this.http.post<{ email: string; password: string }>(
+      DOMAIN + "/login",
+      {
+        email,
+        password,
+      }
+    );
+  }
 
   getUsers(options: TableOptions): Observable<HttpResponse<User[]>> {
     let queryParams = [];
