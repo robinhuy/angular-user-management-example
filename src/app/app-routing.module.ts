@@ -7,6 +7,7 @@ import { UsersComponent } from "./pages/users/users.component";
 import { CreateUserComponent } from "./pages/users/create-user/create-user.component";
 import { EditUserComponent } from "./pages/users/edit-user/edit-user.component";
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
+import { AuthGuard } from "./auth/auth.guard";
 
 const routes: Routes = [
   { path: "", redirectTo: "/admin/login", pathMatch: "full" },
@@ -14,7 +15,9 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
+      { path: "", component: ProfileComponent },
       { path: "profile", component: ProfileComponent },
       { path: "users", component: UsersComponent },
       { path: "users/create", component: CreateUserComponent },

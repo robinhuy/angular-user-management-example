@@ -11,16 +11,36 @@ const API: string = "http://localhost:3000/users";
   providedIn: "root",
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  isLoggedIn = false;
+  redirectUrl: string = "/admin/profile";
 
-  login(email: string, password: string) {
-    return this.http.post<{ email: string; password: string }>(
-      DOMAIN + "/login",
-      {
-        email,
-        password,
-      }
-    );
+  constructor(private http: HttpClient) {
+    if (window && window.localStorage) {
+      this.isLoggedIn = window.localStorage.getItem("token") ? true : false;
+    }
+  }
+
+  login(email: string, password: string): Observable<User> {
+    return this.http.post<User>(DOMAIN + "/login", {
+      email,
+      password,
+    });
+  }
+
+  setLoggedIn(token: string): void {
+    this.isLoggedIn = true;
+
+    if (window && window.localStorage && token) {
+      window.localStorage.setItem("token", token);
+    }
+  }
+
+  logout(): void {
+    this.isLoggedIn = false;
+
+    if (window && window.localStorage) {
+      window.localStorage.setItem("token", "");
+    }
   }
 
   getUsers(options: TableOptions): Observable<HttpResponse<User[]>> {

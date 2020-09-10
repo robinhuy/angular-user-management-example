@@ -20,8 +20,9 @@ export class LoginComponent {
 
   login() {
     this.userService.login(this.email, this.password).subscribe(
-      () => {
-        this.router.navigateByUrl("/admin/profile");
+      (user) => {
+        this.userService.setLoggedIn(user.token);
+        this.router.navigateByUrl(this.userService.redirectUrl);
       },
       (err) => {
         this.snackBar.open(err.error.message, "", {
