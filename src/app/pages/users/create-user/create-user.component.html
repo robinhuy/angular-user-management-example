@@ -1,4 +1,4 @@
-<form [formGroup]="createUserForm" (ngSubmit)="createUser()">
+<div [formGroup]="createUserForm">
   <app-user-form formControlName="profile"></app-user-form>
 
   <app-password-form formControlName="password"></app-password-form>
@@ -15,7 +15,8 @@
     mat-raised-button
     color="primary"
     [disabled]="!createUserForm.valid"
+    (click)="createUser()"
   >
     Add new user
   </button>
-</form>
+</div>

@@ -40,3 +40,18 @@ img {
 .mat-form-field {
   margin-bottom: 1rem;
 }
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+router-outlet + * {
+  display: block;
+  -webkit-animation: fade 1s;
+  animation: fade 1s;
+}

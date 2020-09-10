@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-admin-layout',
-  templateUrl: './admin-layout.component.html',
-  styleUrls: ['./admin-layout.component.css']
+  selector: "app-admin-layout",
+  templateUrl: "./admin-layout.component.html",
+  styleUrls: ["./admin-layout.component.css"],
 })
-export class AdminLayoutComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class AdminLayoutComponent {}
