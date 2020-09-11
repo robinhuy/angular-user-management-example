@@ -21,7 +21,7 @@ export class LoginComponent {
   login() {
     this.userService.login(this.email, this.password).subscribe(
       (user) => {
-        this.userService.setLoggedIn(user.token);
+        this.userService.setAuthToken(user.token);
         this.router.navigateByUrl(this.userService.redirectUrl);
       },
       (err) => {

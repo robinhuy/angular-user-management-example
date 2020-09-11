@@ -11,12 +11,12 @@ const API: string = "http://localhost:3000/users";
   providedIn: "root",
 })
 export class UserService {
-  isLoggedIn = false;
+  authToken = "";
   redirectUrl: string = "/admin/profile";
 
   constructor(private http: HttpClient) {
     if (window && window.localStorage) {
-      this.isLoggedIn = window.localStorage.getItem("token") ? true : false;
+      this.authToken = window.localStorage.getItem("token");
     }
   }
 
@@ -27,8 +27,8 @@ export class UserService {
     });
   }
 
-  setLoggedIn(token: string): void {
-    this.isLoggedIn = true;
+  setAuthToken(token: string): void {
+    this.authToken = token;
 
     if (window && window.localStorage && token) {
       window.localStorage.setItem("token", token);
@@ -36,7 +36,7 @@ export class UserService {
   }
 
   logout(): void {
-    this.isLoggedIn = false;
+    this.authToken = "";
 
     if (window && window.localStorage) {
       window.localStorage.setItem("token", "");
