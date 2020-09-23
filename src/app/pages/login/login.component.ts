@@ -25,7 +25,7 @@ export class LoginComponent {
         this.router.navigateByUrl(this.userService.redirectUrl);
       },
       (err) => {
-        this.snackBar.open(err.error.message, "", {
+        this.snackBar.open(err.error.message || err.message, "", {
           duration: 2000,
         });
       }
