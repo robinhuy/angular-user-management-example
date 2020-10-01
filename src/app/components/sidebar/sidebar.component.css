@@ -18,12 +18,19 @@
   font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.5rem;
-  color: #192038;
+  color: #222b45;
 }
 
-.menu > li:hover > a {
+mat-icon {
+  margin-right: 5px;
+  color: #8f9bb3;
+}
+
+.menu > li:hover > a,
+.menu > li:hover > a > mat-icon {
   color: #598bff;
 }
-.menu > li > a.active {
+.menu > li > a.active,
+.menu > li > a.active > mat-icon {
   color: #36f;
 }

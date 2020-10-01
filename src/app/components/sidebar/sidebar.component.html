@@ -1,13 +1,29 @@
 <ul class="menu">
   <li>
+    <a routerLink="/admin/dashboard" routerLinkActive="active">
+      <mat-icon aria-hidden="false" aria-label="Dashboard Icon"
+        >dashboard
+      </mat-icon>
+
+      Dashboard
+    </a>
+  </li>
+  <li>
     <a
       routerLink="/admin/users"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >List Users</a
     >
+      <mat-icon aria-hidden="false" aria-label="User Icon">group</mat-icon>
+
+      List Users
+    </a>
   </li>
   <li>
-    <a routerLink="/admin/users/create" routerLinkActive="active">New User</a>
+    <a routerLink="/admin/users/create" routerLinkActive="active">
+      <mat-icon aria-hidden="false" aria-label="Add User Icon">group_add</mat-icon>
+
+      New User
+    </a>
   </li>
 </ul>
