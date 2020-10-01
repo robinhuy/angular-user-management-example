@@ -54,7 +54,7 @@
       <ng-container matColumnDef="birthday">
         <th mat-header-cell *matHeaderCellDef>Birthday</th>
         <td mat-cell *matCellDef="let element">
-          {{ formatDate(element.birthday) }}
+          {{ element.birthday | date : "MM/dd/yyyy" }}
         </td>
       </ng-container>
 
