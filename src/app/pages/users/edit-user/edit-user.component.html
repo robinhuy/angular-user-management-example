@@ -1,20 +1,26 @@
-<div [formGroup]="updateUserForm">
-  <app-user-form formControlName="profile"></app-user-form>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Edit User</mat-card-title>
+  </mat-card-header>
 
-  <button
-    mat-raised-button
-    routerLink="/admin/users"
-    style="margin-right: 10px"
-  >
-    Cancel
-  </button>
+  <div [formGroup]="updateUserForm" style="margin-left: 16px">
+    <app-user-form formControlName="profile"></app-user-form>
 
-  <button
-    mat-raised-button
-    color="primary"
-    [disabled]="!updateUserForm.valid"
-    (click)="updateUser()"
-  >
-    Update user
-  </button>
-</div>
+    <button
+      mat-raised-button
+      routerLink="/admin/users"
+      style="margin-right: 10px"
+    >
+      Cancel
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!updateUserForm.valid"
+      (click)="updateUser()"
+    >
+      Update user
+    </button>
+  </div>
+</mat-card>

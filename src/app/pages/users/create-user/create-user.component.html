@@ -1,22 +1,28 @@
-<div [formGroup]="createUserForm">
-  <app-user-form formControlName="profile"></app-user-form>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>New User</mat-card-title>
+  </mat-card-header>
 
-  <app-password-form formControlName="password"></app-password-form>
+  <div [formGroup]="createUserForm" style="margin-left: 16px">
+    <app-user-form formControlName="profile"></app-user-form>
 
-  <button
-    mat-raised-button
-    routerLink="/admin/users"
-    style="margin-right: 10px"
-  >
-    Cancel
-  </button>
+    <app-password-form formControlName="password"></app-password-form>
 
-  <button
-    mat-raised-button
-    color="primary"
-    [disabled]="!createUserForm.valid"
-    (click)="createUser()"
-  >
-    Add new user
-  </button>
-</div>
+    <button
+      mat-raised-button
+      routerLink="/admin/users"
+      style="margin-right: 10px"
+    >
+      Cancel
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!createUserForm.valid"
+      (click)="createUser()"
+    >
+      Add new user
+    </button>
+  </div>
+</mat-card>
