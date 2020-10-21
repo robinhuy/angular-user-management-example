@@ -5,7 +5,6 @@ import {
 } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { tap } from "rxjs/operators";
 import { UserService } from "../services/user.service";
 
 @Injectable()
@@ -19,17 +18,6 @@ export class AuthInterceptor implements HttpInterceptor {
       setHeaders: { Authorization: "Bearer " + authToken },
     });
 
-    return next.handle(authReq).pipe(
-      tap(
-        () => {},
-        // Log out user if unauthorized (token expired)
-        (error) => {
-          if (error.status === 401) {
-            this.userService.logout();
-            this.router.navigateByUrl("/admin/login");
-          }
-        }
-      )
-    );
+    return next.handle(authReq);
   }
 }

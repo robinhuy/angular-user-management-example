@@ -3,6 +3,7 @@ import { User } from "../models/user.model";
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { TableOptions } from "../models/table-options.model";
+
 import { environment } from "src/environments/environment";
 
 const USER_API_ENDPOINT: string = environment.API_ENDPOINT + "/users";
