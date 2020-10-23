@@ -1,11 +1,12 @@
-# UserManagement
+# Source code ví dụ mẫu User Management viết bằng Angular 10
 
 User management using Angular 10 & Fake REST API NodeJS https://github.com/robinhuy/fake-rest-api-nodejs
 
-## Development server
+## Chạy ứng dụng trên môi trường development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Cài Server API bằng thư viện: https://github.com/robinhuy/fake-rest-api-nodejs, server API mặc định chạy
+ ở địa chỉ http://localhost:3000.
+ 
+- Cài dependencies bằng lệnh `npm install`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Chạy server dev bằng lệnh `ng serve`. Server dev chạy ở địa chỉ http://localhost:4200.
