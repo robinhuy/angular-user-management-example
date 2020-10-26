@@ -31,6 +31,8 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   searchUserInput: string = "";
   searchUserInput$ = new Subject<string>();
+  
+  isUserChangePage: boolean = true;
 
   @ViewChild("paginator") paginator: MatPaginator;
 
@@ -53,8 +55,12 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.searchUserInput$
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe((value) => {
+        // Move to first page and mark it is not manual change page to prevent duplicate call api
+        this.isUserChangePage = false;
         this.paginator.firstPage();
+        this.isUserChangePage = true;
 
+        // Call API to update data
         this.userService
           .getUsers({
             column: this.column,
@@ -70,26 +76,34 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   changePage(event: PageEvent) {
-    this.itemsPerPage = event.pageSize;
+    if (this.isUserChangePage) {
+      this.itemsPerPage = event.pageSize;
 
-    this.userService
-      .getUsers({
-        currentPage: event.pageIndex + 1,
-        column: this.column,
-        direction: this.direction,
-        itemsPerPage: this.itemsPerPage,
-      })
-      .subscribe((result) => {
-        this.users = result.body;
-        this.totalItems = parseInt(result.headers.get("X-Total-Count"));
-      });
+      this.userService
+        .getUsers({
+          currentPage: event.pageIndex + 1,
+          column: this.column,
+          direction: this.direction,
+          itemsPerPage: this.itemsPerPage,
+          keyword: this.searchUserInput,
+        })
+        .subscribe((result) => {
+          this.users = result.body;
+          this.totalItems = parseInt(result.headers.get("X-Total-Count"));
+        });
+    }
   }
 
   sortData(sort: Sort) {
-    this.paginator.firstPage();
     this.column = sort.active;
     this.direction = sort.direction;
 
+    // Move to first page and mark it is not manual change page to prevent duplicate call api
+    this.isUserChangePage = false;
+    this.paginator.firstPage();
+    this.isUserChangePage = true;
+
+    // Call API to update data
     this.userService
       .getUsers({
         column: this.column,
@@ -104,7 +118,6 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   searchUser() {
-    this.paginator.firstPage();
     this.searchUserInput$.next(this.searchUserInput);
   }
 
