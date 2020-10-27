@@ -45,3 +45,8 @@ table {
   left: 0;
   background: rgba(0, 0, 0, 0.1);
 }
+
+.paginator {
+  display: flex;
+  justify-content: center;
+}

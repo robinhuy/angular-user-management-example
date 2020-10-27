@@ -39,6 +39,7 @@ import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.com
 import { UserFormComponent } from "./components/user-form/user-form.component";
 import { PasswordFormComponent } from "./components/password-form/password-form.component";
 import { DialogConfirmDeleteComponent } from "./components/dialog-confirm-delete/dialog-confirm-delete.component";
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { DialogConfirmDeleteComponent } from "./components/dialog-confirm-delete
     UserFormComponent,
     PasswordFormComponent,
     DialogConfirmDeleteComponent,
+    PaginatorComponent,
   ],
   imports: [
     BrowserModule,

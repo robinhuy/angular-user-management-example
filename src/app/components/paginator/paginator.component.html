@@ -1,0 +1,38 @@
+<nav *ngIf="numberOfPages > 0">
+  <ul class="pagination">
+    <li
+      *ngIf="showFirstLastButtons"
+      [class.disabled]="pageIndex === 0"
+      (click)="changePage(0)"
+    >
+      <span aria-label="First">«</span>
+    </li>
+
+    <li [class.disabled]="pageIndex === 0" (click)="changePage(pageIndex - 1)">
+      <span aria-label="Prev">&lt;</span>
+    </li>
+
+    <li
+      *ngFor="let item of displayPages"
+      [class.active]="pageIndex === item"
+      (click)="changePage(item)"
+    >
+      <span class="">{{ item + 1 }}</span>
+    </li>
+
+    <li
+      [class.disabled]="pageIndex === numberOfPages - 1"
+      (click)="changePage(pageIndex + 1)"
+    >
+      <span aria-label="Next">&gt;</span>
+    </li>
+
+    <li
+      *ngIf="showFirstLastButtons"
+      [class.disabled]="pageIndex === numberOfPages - 1"
+      (click)="changePage(numberOfPages - 1)"
+    >
+      <span aria-label="Last">»</span>
+    </li>
+  </ul>
+</nav>
